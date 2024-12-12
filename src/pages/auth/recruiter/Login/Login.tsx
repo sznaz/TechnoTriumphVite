@@ -1,12 +1,11 @@
 import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './Login.module.css'
-
+import styles from '../onboarding/onboarding.module.css'
+import AuthCommonLayout from '../../../../components/recruiter/AuthCommonLayout/AuthCommonLayout';
 import { Link } from 'react-router-dom';
-import AuthCommonLayout from '../../../../components/candidate/AuthCommonLayout/AuthCommonLayout';
 
-const LoginPage = () => {
-    const navigate = useNavigate();
+const LoginRecruiterPage = () => {
+  const navigate = useNavigate();
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
  
@@ -15,7 +14,7 @@ const LoginPage = () => {
 
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    navigate('/candidate/welcome/start');
+    navigate('/recruiter/welcome/start');
   };
 
   return (
@@ -40,10 +39,10 @@ const LoginPage = () => {
         />
       
         <button type="submit" className={styles.nextBtn} disabled={!isFormValid}>Login</button>
-        <p className={styles.textColor}>Dont have an account? <Link to="/auth/candidate/onboarding" className={styles.link}>Register</Link></p>
+        <p className={styles.textColor}>Dont have an account? <Link to="/auth/recruiter/onboarding" className={styles.link}>Register</Link></p>
       </form>
   </AuthCommonLayout>
   );
 };
 
-export default LoginPage;
+export default LoginRecruiterPage;

@@ -11,10 +11,11 @@ const CommonLayout: React.FC<CommonLayoutProps> = ({ children }) => {
   return (
    <>
     <div>
+      
         <div className={styles.registerPage}>
-          <img src="/images/candidate.svg" alt="Background" className={styles.backgroundImg}  width={180}  height={38} />
+          <img src='/src/assets/images/candidate.svg' alt="Background" className={styles.backgroundImg}  width={180}  height={38} />
           <header className={styles.header}>
-            <img src="/images/logo.svg" alt="Techno Triumph" className={styles.logo}  width={180}  height={38}/>
+            <img src='/src/assets/images/logo.svg' alt="Techno Triumph" className={styles.logo}  width={180}  height={38}/>
            
           </header>
            <h1 className={styles.mainTitle}>

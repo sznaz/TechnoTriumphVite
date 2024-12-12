@@ -1,11 +1,10 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './onboarding.module.css';
-
+import AuthCommonLayout from '../../../../components/recruiter/AuthCommonLayout/AuthCommonLayout';
 import { Link } from 'react-router-dom';
-import AuthCommonLayout from '../../../../components/candidate/AuthCommonLayout/AuthCommonLayout';
 
-const OnboardingPage = () => {
+const OnboardingRecruiterPage = () => {
     const navigate = useNavigate();
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -15,13 +14,11 @@ const OnboardingPage = () => {
 
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-   
-    navigate('/auth/candidate/onboarding/otp');
+    navigate('/auth/recruiter/onboarding/otp');
   };
 
   return (
-
-<AuthCommonLayout>
+  <AuthCommonLayout>
       <form className={styles.form} onSubmit={handleSubmit}>
         <input
           type="text"
@@ -41,15 +38,13 @@ const OnboardingPage = () => {
         />
         <div className={styles.formCheckbox}>
           <input type="checkbox" id="terms" className={styles.customCheckbox} onChange={(e) => setTermsChecked(e.target.checked)} />
-          <label htmlFor="terms"><span className={styles.textColor}>I agree to all</span><Link to='' style={{textDecoration:'none',color:'black'}}> terms & conditions</Link></label>
+          <label htmlFor="terms"><span className={styles.textColor}>I agree to all</span> <Link to='' style={{textDecoration:'none',color:'black'}}>terms & conditions</Link></label>
         </div>
         <button type="submit" className={styles.nextBtn} disabled={!isFormValid}>Next</button>
-        <div className={styles.grayLine}></div>
-        <p className={styles.textColor}>Already have an account? <Link to="/auth/candidate/login" className={styles.link}>Login</Link></p>
+        <p className={styles.textColor}>Already have an account? <Link to="/auth/recruiter/login" className={styles.link}>Login</Link></p>
       </form>
-      </AuthCommonLayout>
-
+  </AuthCommonLayout>
   );
 };
 
-export default OnboardingPage;
+export default OnboardingRecruiterPage;

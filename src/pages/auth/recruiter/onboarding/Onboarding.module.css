@@ -2,9 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
-    /* width: 518px;
-    height: 415px; */
   }
   
  
@@ -12,7 +9,7 @@
     padding: 10px;
     margin: 10px 0;
     border-radius: 8px;
-    border: 1px solid #E6E6E6;
+    border: 1px solid #FEDBB0;
     width: 100%;
   }
   
@@ -21,23 +18,21 @@
   }
   .textColor{
     color: #787777;
-    margin-top: 10px;
-    margin-bottom: 10px;
   }
   .customCheckbox {
     appearance: none; 
     width: 16px;
     height: 16px;
     background-color: white;
-    border: 1px solid blue; 
+    border: 1px solid #ff9f43; 
     border-radius: 4px;
     cursor: pointer;
     position: relative;
   }
   
   .customCheckbox:checked {
-    background-color: blue; 
-    border-color: blue;
+    background-color: #ff9f43; 
+    border-color: #ff9f43;
   }
   
   .customCheckbox:checked::after {
@@ -58,11 +53,10 @@
   .formCheckbox {
     display: flex;
     align-items: center;
-    margin: 30px 0;
-
+    margin: 10px 0;
   }
   .nextBtn {
-    background-color: blue;
+    background-color: #f89a29;
     padding: 10px;
     border: none;
     border-radius: 60.67px;
@@ -73,11 +67,11 @@
     margin-bottom: 28px;
   }
   .nextBtn:disabled{
-    background-color: #D9D9D9;
+    background-color: #FEDBB0;
   }
   
   .link {
-    color: blue;
+    color: #f89a29;
     text-decoration: none;
   }
   
@@ -95,8 +89,8 @@
   }
   
   .otpInput input {
-    width: 68px;
-    height: 43px;
+    width: 40px;
+    height: 40px;
     font-size: 18px;
     text-align: center;
     border-radius: 5px;
@@ -105,46 +99,5 @@
   }
   .otpPara{
     margin-bottom:10px;
-    font-size: 16px;
-    font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   }
-  .grayLine {
-    margin-bottom:10px;
-    border-bottom: 1px solid #E6E6E6;
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  .nextBtn{
-    margin-top: 40px;
-    background-color: blue;
-    width: 120px;
-    height: 40px;
-  }
-  .passwordField {
-    display: flex;
-    align-items: center;
-    position: relative;
-    width: 100%;
-  }
-  
-  
-  .icon {
-    position: absolute;
-    right: 10px;
-    cursor: pointer;
-    color: #757575;
-  }
-
-  .passwordText{
-    font-size: 15px;
-    font-weight: 600  
-  }
-  .smallText{
-    color: #757575;
-    margin: 10px 0;
-  }
-  
   
