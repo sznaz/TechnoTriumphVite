@@ -13,6 +13,10 @@ import WelcomeCandidatePage from './pages/candidate/welcome/Welcome';
 import WelcomeRecruiterPage from './pages/recruiter/welcome/Welcome';
 import HomeRecruiterPage from './pages/recruiter/home/Home';
 import HomeCandidatePage from './pages/candidate/home/Home';
+import Jobs from './pages/recruiter/job/all-jobs/AllJobs';
+import NewJobPage from './pages/recruiter/job/new-job/NewJob';
+import Overview from './components/recruiter/overview/Overview';
+import ScreeningCriteria from './components/recruiter/screeningCriteria/ScreeningCriteria';
 
 
 const AppRoutes: React.FC = () => {
@@ -31,6 +35,12 @@ const AppRoutes: React.FC = () => {
         <Route path='/recruiter/welcome' element={<WelcomeRecruiterPage/>}/>
         <Route path='/recruiter/welcome/start' element={<HomeRecruiterPage/>}/>
         <Route path='/candidate/welcome/start' element={<HomeCandidatePage/>}/>
+        <Route path='/recruiter/job/all-jobs' element={<Jobs/>}/>
+        <Route path='/recruiter/job/new-job' element={<NewJobPage/>}/>
+        <Route path="/recruiter/job/new-job" element={<NewJobPage />}>
+        <Route path="overview" element={<Overview />} />
+        <Route path="screening" element={<ScreeningCriteria />} />
+      </Route>
       </Routes>
     );
   };

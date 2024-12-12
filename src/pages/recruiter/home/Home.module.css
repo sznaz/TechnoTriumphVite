@@ -46,7 +46,7 @@
     margin-top: 5px;
 }
 .containerWrapper {
-    height: calc(100vh - 92px);
+    height: calc(100vh - 96px);
     overflow-y: auto;
 }
 .mainWrapper {
