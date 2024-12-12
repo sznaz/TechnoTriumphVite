@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styles from './AuthCommonLayout.module.css';
-
+import FooterRecruiterPage from '../footer/Footer';
 
 
 interface CommonLayoutProps {
@@ -31,7 +31,7 @@ const CommonLayout: React.FC<CommonLayoutProps> = ({ children }) => {
           </div>
      
         </div>
-       
+        <FooterRecruiterPage/>
     </div>
    </>
   );

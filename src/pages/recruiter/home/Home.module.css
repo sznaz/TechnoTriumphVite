@@ -1,0 +1,74 @@
+.bg1 {
+    /* background-color: yellow; */
+    cursor: pointer;
+    width: 250px;
+    height: 165px;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    /* background-image: url('./../../../../public/images/jbg.svg') no-repeat;
+    background-size: 100% 100%; */
+}
+
+
+.innerImage {
+    padding-top: 10px;
+}
+.title{
+    font-size: 18px;
+    color: #333333;
+    padding-top: 20px;
+}
+.ulstyle {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+.txtTitle {
+    color: #666666;
+    font-size: 24px;
+    text-align: center;
+}
+.welcome {
+    font-size: 40px;
+    color: #141414;
+    text-align: center;
+    margin-top: 20px;
+}
+.proTitle {
+    color: #FB8C00;
+}
+.subTitle {
+    font-size: 24px;
+    color: #333333;
+    text-align: center;
+    margin-top: 5px;
+}
+.containerWrapper {
+    height: calc(100vh - 92px);
+    overflow-y: auto;
+}
+.mainWrapper {
+    padding: 60px;
+    border-radius: 25px;
+    background-color: #fff;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    margin-top: 50px;
+    height: 73%;
+}
+.containerW {
+    margin-top: 10px;
+}
+.bodyWrapper {
+    background: radial-gradient(#fb8c0038, #ffffff)
+}
+
+.ulstyle li:hover {
+    border: 1px solid #FB8C00;
+  }
+
+  .linkStyle{
+    text-decoration: none;
+  }

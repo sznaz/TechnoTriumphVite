@@ -41,7 +41,7 @@ const OnboardingPage = () => {
         />
         <div className={styles.formCheckbox}>
           <input type="checkbox" id="terms" className={styles.customCheckbox} onChange={(e) => setTermsChecked(e.target.checked)} />
-          <label htmlFor="terms"><span className={styles.textColor}>I agree to all</span><Link to='' style={{textDecoration:'none',color:'black'}}> terms & conditions</Link></label>
+          <label htmlFor="terms"><span className={styles.textColor}>I agree to all</span><Link to='' style={{textDecoration:'none',color:'#706030'}}> terms & conditions</Link></label>
         </div>
         <button type="submit" className={styles.nextBtn} disabled={!isFormValid}>Next</button>
         <div className={styles.grayLine}></div>
