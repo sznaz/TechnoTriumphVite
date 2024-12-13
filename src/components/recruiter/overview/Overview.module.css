@@ -152,5 +152,6 @@
     flex-wrap: wrap;
     gap: 5px;
   }
-
- 
+::ng-deep .tox .tox-mbtn__select-label{
+    color: red !important;
+ }

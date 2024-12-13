@@ -47,13 +47,21 @@
     transform: rotate(45deg);
   }
 
+  .grayLine {
+    margin-bottom:10px;
+    border-bottom: 1px solid #E6E6E6;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
   .formCheckbox input {
     margin-right: 10px;
   }
   .formCheckbox {
     display: flex;
     align-items: center;
-    margin: 10px 0;
+    margin-top: 60px;
+   
   }
   .nextBtn {
     background-color: #f89a29;
