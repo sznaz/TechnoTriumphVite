@@ -124,6 +124,7 @@
     margin-top: 1rem;
     margin-left: 10px;
     background-color: #ffffff !important;
+    cursor: pointer;
   }
   
   .formsContainer {

@@ -15,40 +15,38 @@ import {
 } from "@mui/material";
 import { Link} from 'react-router-dom'
 
-import { Editor } from "@tinymce/tinymce-react";
+import "react-quill/dist/quill.snow.css";
 
 import styles from "./Overview.module.css";
 
-// import "react-quill/dist/quill.snow.css";
 
 
 
-// const ReactQuill = React.lazy(() => import("react-quill"));
+
+const ReactQuill = React.lazy(() => import("react-quill"));
 
 
 
-// const modules = {
-//     toolbar: [
-//         [{ header: [1, 2, 3, false] }],
-//         ["bold", "italic"],
-//         [{ align: "" }, { align: "center" }, { align: "right" }],
-//         [{ indent: '-1' },
-//         { indent: '+1' }],
+const modules = {
+    toolbar: [
+        [{ header: [1, 2, 3, false] }],
+        ["bold", "italic"],
+        [{ align: "" }, { align: "center" }, { align: "right" }],
+        [{ indent: '-1' },
+        { indent: '+1' }],
 
-//     ],
-// };
+    ],
+};
 
-// const formats = [
-//     "header",
-//     "bold",
-//     "italic",
+const formats = [
+    "header",
+    "bold",
+    "italic",
 
-//     "align",
-//     'indent'
+    "align",
+    'indent'
 
-// ];
-
-
+];
 
 const OverviewPage = () => {
 
@@ -63,10 +61,9 @@ const OverviewPage = () => {
         locations: [] as string[],
         closingDate: '',
     });
-    const handleDescriptionChange = (value: string) => {
-        console.log(value); // Logs the content of the editor
+    const handleDescriptionChange = (value: React.SetStateAction<string>) => {
         setJobDescription(value);
-      };
+    };
 
 
     const handleRemoveLocation = (location: string) => {
@@ -118,15 +115,15 @@ const OverviewPage = () => {
                                 <input type="text" placeholder="Enter" className={styles.customInput} />
                                 <InputLabel sx={{ marginTop: "20px" }}>Job Description</InputLabel>
                                 <div className={styles.textEditorui}>
-                                    {/* <ul className={styles.ulStyle1}>
+                                    <ul className={styles.ulStyle1}>
                                         <li className={styles.ulLiStyle1}>File</li>
                                         <li className={styles.ulLiStyle1}>Edit</li>
                                         <li className={styles.ulLiStyle1}>View</li>
                                         <li className={styles.ulLiStyle1}>Format</li>
                                         <li className={styles.ulLiStyle1}>Tools</li>
-                                    </ul> */}
+                                    </ul>
                                     <Suspense fallback={<div>Loading editor...</div>}>
-                                    {/* <ReactQuill
+                                    <ReactQuill
                                         theme="snow"
                                         value={jobDescription}
                                         onChange={handleDescriptionChange}
@@ -134,28 +131,8 @@ const OverviewPage = () => {
                                         formats={formats}
 
                                         style={{ height: "150px", marginBottom: "20px", border: " #FFE2C8", }}
-                                    /> */}
-                                    <Editor
-                                    
-                                    apiKey='415xuz3mk0n2rhv5rpu1bmpwmg0d8c9mvt0hkorxh8ebp8sq'
-              value={jobDescription}  
-              init={{
-                branding: false,
-                height: 200,  
-                menubar: true,  
-                menu: {
-                  file: { title: 'File', items: 'newdocument | open' },
-                  edit: { title: 'Edit', items: 'undo redo | cut copy paste' },
-                  view: { title: 'View', items: 'visualaid | fullscreen' },
-                  format: { title: 'Format', items: 'bold italic underline strikethrough | formatselect' },
-                  tools: { title: 'Tools', items: 'spellchecker' },
-                },
-                plugins: ['lists', 'link', 'paste'], 
-                toolbar: "undo redo | formatselect | bold italic | alignleft aligncenter alignright| indent outdent",  
-              }}
-              onEditorChange={handleDescriptionChange}  
-            />
-          </Suspense>
+                                    />
+                                            </Suspense>
                                 </div>
                             </Grid>
 

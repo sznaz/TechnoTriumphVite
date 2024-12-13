@@ -119,7 +119,7 @@ function ScreeningQuestionsPage() {
                             </thead>
                             <tbody>
                                 {questionData.map((question, index) => (
-                                    <>
+                                   
                                         <tr key={index}>
                                             <td>{index + 1}</td>
                                             <td>
@@ -181,7 +181,7 @@ function ScreeningQuestionsPage() {
                                                 </div>
                                             </td>
                                         </tr>
-                                    </>
+                                   
                                 ))}
                             </tbody>
                         </table>
