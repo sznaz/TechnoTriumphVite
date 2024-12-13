@@ -1,0 +1,62 @@
+.accTitle {
+    color: #333333 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    background-color: #FFF9F2 !important;
+    border: none !important;
+    height: 72px !important;
+    --Paper-shadow: none !important;
+}
+.accordDetails {
+    background-color: #FFF9F2 !important;
+}
+.alignRight {
+    display: flex;
+    justify-content: right;
+    margin-top: 50px !important;
+}
+.t1 {
+    font-size: 14px;
+    color: #333333;
+    font-weight: 500;
+    background-color: #FEDBB0;
+    padding: 5px 10px;
+    width: 15%;
+}
+.t2 {
+    font-size: 14px;
+    color: #333333;
+    font-weight: 400;
+    background-color: #FFF7DF;
+    padding: 5px 10px;
+    width: 15%;
+}
+.wd {
+    display: flex;
+    margin-top: 5px;
+}
+.accord {
+    margin-top: 10px !important;
+}
+.screen2 {
+    font-size: 16px !important;
+    color: #fff !important;
+    border-radius: 20px !important;
+    text-transform: capitalize !important;
+    border: 1px solid #FB8C00 !important;
+    min-width: 120px !important;
+    height: 42px !important;
+    background-color: #FB8C00 !important;
+    font-weight: 500 !important;
+}
+.title {
+    font-size: 20px;
+    color: #222222;
+    font-weight: 600;
+    margin-top: 50px
+}
+.subTitle {
+    font-size: 12px;
+    color: #989898;
+    font-weight: 500;
+}

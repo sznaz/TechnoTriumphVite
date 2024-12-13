@@ -1,13 +1,11 @@
-"use client";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import React from 'react';
 import styles from './JobDetails.module.css';
 import FooterPage from '../../../../components/recruiter/footer/Footer';
 import HeaderPage from '../../../../components/recruiter/header/Header';
-import { Grid } from '@mui/material';
+import { Dialog, Grid } from '@mui/material';
 import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
-import Dialog from '@mui/material/Dialog';
+import { useNavigate, useLocation } from 'react-router-dom';
 import DialogContent from '@mui/material/DialogContent';
 
 
@@ -36,6 +34,13 @@ function JobDetailsPage() {
     const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
     const [responseSent, setResponseSent] = useState<string[]>([]);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.state?.showParsed) {
+            setIsResumeParsed(true); 
+        }
+    }, [location.state]);
   
     function resume() {
         navigate('/recruiter/job/parse-resume');

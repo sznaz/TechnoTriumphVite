@@ -22,6 +22,7 @@ import ProfilePage from './pages/recruiter/completeProfile/CompleteProfile';
 import FrequentlyAskedQuestionsPage from './pages/recruiter/frequentQuestions/FrequentlyAskedQuestions';
 import ScreeningQuestionsPage from './pages/recruiter/screeningQuestions/ScreeningQuestions';
 import JobDetailsPage from './pages/recruiter/job/job-details/jobDetails';
+import ParseResumePage from './pages/recruiter/parseResume/ParseResume';
 
 
 const AppRoutes: React.FC = () => {
@@ -47,6 +48,8 @@ const AppRoutes: React.FC = () => {
         <Route path='/recruiter/home/profile' element={<ProfilePage/>}/>
         <Route path='/recruiter/job/screeningQuestions' element={<ScreeningQuestionsPage/>}/>
         <Route path='/recruiter/job/job-details' element={<JobDetailsPage/>}/>
+        <Route path='/recruiter/job/parse-resume' element={<ParseResumePage/>}/>
+        
        
         <Route path="/recruiter/job/new-job" element={<NewJobPage />}>
         <Route path="overview" element={<Overview />} />
