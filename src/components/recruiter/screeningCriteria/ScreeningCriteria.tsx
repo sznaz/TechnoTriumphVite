@@ -276,6 +276,7 @@ function ScreeningPage() {
                     >
                       <img
                         src="/src/assets/images/trash.svg"
+                        className={styles.trashIconImage}
                         alt="trash"
                         width={16}
                         height={16}

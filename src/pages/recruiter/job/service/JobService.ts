@@ -15,6 +15,7 @@ export class JobService {
     readonly GENERAL_REQUIREMENT_URL: string = `${this.JOB_BASE_URL}general`;
     readonly SKILL_URL: string = `${this.JOB_BASE_URL}skill`;
     readonly UPDATE_JOB_URL: string = `${this.JOB_BASE_URL}${this.JOB_URL}/`;
+    readonly GET_JOB_BY_ID_URL: string = `${this.JOB_BASE_URL}${this.JOB_URL}/`;
     readonly POST : string = "POST"
     readonly PUT : string = "PUT"
     readonly GET : string = "GET"
@@ -78,6 +79,10 @@ async updateJob(jobId: string, payload: Record<string, any>) {
   const response = await HttpService.instance.callApi(this.PUT, `${this.UPDATE_JOB_URL}${jobId}`, true, payload);
   return response;
 }
+async getJobById(jobId: string) {
+    const response = await HttpService.instance.callApi(this.GET, `${this.GET_JOB_BY_ID_URL}${jobId}`, true);
+    return response;
+  }
 
  
 }

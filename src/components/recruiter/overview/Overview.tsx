@@ -292,7 +292,7 @@ const navigate = useNavigate();
               </Grid>
 
               <Grid item xs={12} sm={6}>
-                <InputLabel sx={{ marginTop: "20px" }}>Industry</InputLabel>
+                <InputLabel sx={{ marginTop: "10px" }}>Industry</InputLabel>
                 <select
                   className={styles.inputQuestion}
                   required
@@ -310,7 +310,7 @@ const navigate = useNavigate();
                   ))}
                 </select>
 
-                <InputLabel sx={{ marginTop: "20px" }}>Domain</InputLabel>
+                <InputLabel sx={{ marginTop: "10px" }}>Domain</InputLabel>
                 <select
                   className={styles.inputQuestion}
                   required
@@ -336,7 +336,7 @@ const navigate = useNavigate();
                   {}
                 </select>
 
-                <InputLabel sx={{ marginTop: "20px" }}>
+                <InputLabel sx={{ marginTop: "10px" }}>
                   Employment Type
                 </InputLabel>
                 <select
@@ -357,7 +357,7 @@ const navigate = useNavigate();
                   <option value="Part-time">Part-time</option>
                   <option value="Contract">Contract</option>
                 </select>
-                <InputLabel sx={{ marginTop: "20px" }}>
+                <InputLabel sx={{ marginTop: "10px" }}>
                   No of Positions
                 </InputLabel>
                 <input
@@ -368,7 +368,7 @@ const navigate = useNavigate();
                   placeholder="Enter"
                   className={styles.customInput}
                 />
-                <InputLabel sx={{ marginTop: "20px" }}>Locations </InputLabel>
+                <InputLabel sx={{ marginTop: "10px" }}>Locations </InputLabel>
                 <div className={styles.location}>
                   <div className={styles.tagsContainer}>
                     {formData.locations.map((location, index) => (
@@ -390,7 +390,7 @@ const navigate = useNavigate();
                   />
                 </div>
 
-                <InputLabel sx={{ marginTop: "20px" }}>
+                <InputLabel sx={{ marginTop: "10px" }}>
                   Position Open Till
                 </InputLabel>
                 {/* <input

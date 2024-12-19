@@ -48,7 +48,7 @@ const AppRoutes: React.FC = () => {
         <Route path='/recruiter/invite/addMembers' element={<AddTeamMembers/>}/>
         <Route path='/recruiter/home/profile' element={<ProfilePage/>}/>
         <Route path='/recruiter/job/screeningQuestions' element={<ScreeningQuestionsPage/>}/>
-        <Route path='/recruiter/job/job-details' element={<JobDetailsPage/>}/>
+        <Route path='/recruiter/job/job-details/:id' element={<JobDetailsPage/>}/>
         <Route path='/recruiter/job/parse-resume' element={<ParseResumePage/>}/>
         
        

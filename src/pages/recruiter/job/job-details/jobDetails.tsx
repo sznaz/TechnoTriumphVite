@@ -5,8 +5,9 @@ import FooterPage from '../../../../components/recruiter/footer/Footer';
 import HeaderPage from '../../../../components/recruiter/header/Header';
 import { Dialog, Grid } from '@mui/material';
 import Button from '@mui/material/Button';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import DialogContent from '@mui/material/DialogContent';
+import { JobService } from '../service/JobService';
 
 
 const jobsData = [
@@ -26,8 +27,27 @@ const innerTableData = [
     { parameter: 'Skills: Java, Spring', value: 'Java, Spring', score: '90%' },
 ];
 
+interface Job {
+    _id: string;
+    title: string;
+    status: string;
+    closingDate: number
+  }
+
 function JobDetailsPage() {
+    const { id } = useParams<{ id: string }>();
+    console.log("useParams id:", id);
     const [jobList] = useState(jobsData); 
+    const [jobDetails, setJobDetails] = useState<Job>({
+    _id: "",
+    title: "",
+    status: "",
+    closingDate: 0
+
+    });
+    
+   
+
     const [isResumeParsed, setIsResumeParsed] = useState(false);
     const [showResponseColumn, setShowResponseColumn] = useState(false);
     const [expandedRows, setExpandedRows] = useState<number[]>([]);
@@ -35,6 +55,7 @@ function JobDetailsPage() {
     const [responseSent, setResponseSent] = useState<string[]>([]);
     const navigate = useNavigate();
     const location = useLocation();
+
 
     useEffect(() => {
         if (location.state?.showParsed) {
@@ -89,29 +110,33 @@ function JobDetailsPage() {
         setSelectedUsers([]); 
         setShowResponseColumn(true); 
     };
+  
 
-    const cardData = [
-        {
-            title: 'Open',
-            backgroundImg: '/src/assets/images/jbg.svg',
-            jobId: 'Status'
-        },
-        {
-            title: '15 Aug 2024',
-            backgroundImg: '/src/assets/images/tbg.svg',
-            jobId: 'Open Till'
-        },
-        {
-            title: '10',
-            backgroundImg: '/src/assets/images/fbg.svg',
-            jobId: 'Resume Received'
-        },
-        {
-            title: '00',            
-            backgroundImg: '/src/assets/images/pbg.svg',
-            jobId: 'Screening Questions Sent'
+    useEffect(()=>{
+        async function fetchData (){
+            try {
+                if (!id) {
+                    throw new Error("Job ID is undefined");
+                }
+                const response = await JobService.instance.getJobById(id)
+                console.log("response", response);
+                if (response.status === 200 && response?.data?.data) {
+                    setJobDetails(response.data.data);
+                  }else{
+                    console.error("No data found in response", response);
+                  } 
+            } catch (error) {
+                
+            }
+
         }
-    ];
+
+        fetchData()
+
+
+    }, [id])
+
+
 
     return (
         <>
@@ -121,17 +146,27 @@ function JobDetailsPage() {
                     <Grid container spacing={2}>
                         <Grid item xs={12} md={4}>
                             <div className={styles.breadcrumb}>Home / Jobs / Sr Java Developer</div>
-                            <div className={styles.txtTitle}>Sr Java Developer</div>                            
+                            <div className={styles.txtTitle}>{jobDetails.title}</div>                            
                         </Grid>
                         <Grid item xs={12} md={8}>
                             <div>
                                 <ul className={styles.ulStyle}>
-                                    {cardData.map((card, index) => (
-                                        <li key={index} className={styles.liStyle} style={{ backgroundImage: `url(${card.backgroundImg})` }}>
-                                            <div className={styles.title}>{card.title}</div>
-                                            <div className={styles.jobId}>{card.jobId}</div>
+                                        <li  className={styles.liStyle} style={{ backgroundImage: 'url(/src/assets/images/jbg.svg)'}}>
+                                            <div className={styles.title}>{jobDetails.status}</div>
+                                            <div className={styles.jobId}>{jobDetails.closingDate ? new Date(jobDetails.closingDate).toLocaleDateString(): 'No closing date'}</div>
                                         </li>
-                                    ))}
+                                        <li  className={styles.liStyle} style={{ backgroundImage: 'url(/src/assets/images/tbg.svg)'}}>
+                                            <div className={styles.title}>{jobDetails.status}</div>
+                                            <div className={styles.jobId}>{jobDetails.closingDate ? new Date(jobDetails.closingDate).toLocaleDateString(): 'No closing date'}</div>
+                                        </li>
+                                        <li  className={styles.liStyle} style={{ backgroundImage: 'url(/src/assets/images/fbg.svg)'}}>
+                                            <div className={styles.title}>{jobDetails.status}</div>
+                                            <div className={styles.jobId}>{jobDetails.closingDate ? new Date(jobDetails.closingDate).toLocaleDateString(): 'No closing date'}</div>
+                                        </li>
+                                        <li  className={styles.liStyle} style={{ backgroundImage: 'url(/src/assets/images/pbg.svg)'}}>
+                                            <div className={styles.title}>{jobDetails.status}</div>
+                                            <div className={styles.jobId}>{jobDetails.closingDate ? new Date(jobDetails.closingDate).toLocaleDateString(): 'No closing date'}</div>
+                                        </li>
                                 </ul>
                             </div>
                             <div style={{ marginTop: '25px' }}>

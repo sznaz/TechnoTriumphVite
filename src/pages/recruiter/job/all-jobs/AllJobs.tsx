@@ -10,6 +10,7 @@ import FooterRecruiterPage from '../../../../components/recruiter/footer/Footer'
 
 
 interface Job {
+  _id: string;
   title: string;
   status: string;
   resumesReceived: number;
@@ -32,6 +33,7 @@ export default function Jobs() {
       async function fetchJobs() {
         try {
           const response = await JobService.instance.getTenantJob(tenantId ?? '', status);
+          console.log("res", response)
           if (response?.data?.data) {
             setJobList(response.data.data);
           } else {
@@ -83,14 +85,14 @@ export default function Jobs() {
                     </tr>
                   </thead>
                   <tbody>
-                    {jobList.map((job, index) => (
-                      <tr key={index}>
+                    {jobList.map((job) => (
+                      <tr key={job._id}>
                         <td>{job.title}</td>
                         <td>{job.status}</td>
                         <td>{}</td>
                         <td>{}</td>
                         <td>
-                          <Link to='/recruiter/job/job-details' >View Detail</Link>
+                          <Link to={`/recruiter/job/job-details/${job._id}`}> View Detail</Link>
                         </td>
                       </tr>
                     ))}

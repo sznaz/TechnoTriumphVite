@@ -1,18 +1,37 @@
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import styles from "./Header.module.css";
+import { useState, useEffect, useCallback } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Grid from '@mui/material/Grid2'
-import styles from "./Header.module.css";
-import { useEffect, useState, useCallback } from "react";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { Link, useLocation } from "react-router-dom";
 
 function HeaderRecruiterPage() {
   const [activeTab, setActiveTab] = useState("Home");
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation(); 
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [userFullname, setUserFullname] = useState("User");
 
-  
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const user = localStorage.getItem('user');
+      setUserFullname(user ? user : "User");
+    }
+  }, []);
+
+  const toggleDropdown = () => {
+    setDropdownOpen((prev) => !prev); 
+  };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/auth/recruiter/login');
+  };
+
   const toggleMenu = useCallback(() => {
     setMenuOpen((prev) => !prev);
   }, []);
@@ -23,18 +42,18 @@ function HeaderRecruiterPage() {
       "/recruiter/home": "Home",
       "/recruiter/job/all-jobs": "Jobs",
       "/recruiter/invite/addMembers": "Team",
-      "/recruiter/job/screeningQuestions": "Screening Questions",
+      "/recruiter/job/screeningQuestions": "Screening Questions"
+    
     };
 
     const matchedTab = Object.keys(pathToTab).find((path) =>
-        location.pathname.startsWith(path)
-      );
-  
-      setActiveTab(matchedTab ? pathToTab[matchedTab as keyof typeof pathToTab] : "");
-    }, [location]);
-  
-    const menuItems = ["Home", "Jobs", "Candidates", "Team", "Screening Questions"];
+      location.pathname.startsWith(path)
+    );
 
+    setActiveTab(matchedTab ? pathToTab[matchedTab as keyof typeof pathToTab] : "");
+  }, [location.pathname]);
+
+  const menuItems = ["Home", "Jobs", "Candidates", "Team", "Screening Questions"];
   return (
     <div className={styles.headerWrapper}>
       <Grid container className={styles.headerContainer}>
@@ -44,7 +63,6 @@ function HeaderRecruiterPage() {
             alt="TechnoTriumph Logo"
             width={150}
             height={38}
-           
           />
         </Grid>
 
@@ -89,6 +107,7 @@ function HeaderRecruiterPage() {
             aria-haspopup="true"
             variant="text"
             disableElevation
+            onClick={toggleDropdown}
             endIcon={<KeyboardArrowDownIcon />}
           >
             <img
@@ -97,16 +116,22 @@ function HeaderRecruiterPage() {
               alt="Profile Icon"
               width={38}
               height={38}
-            
             />
-            Vinay Parab
+             {userFullname}
           </Button>
+          {dropdownOpen && (
+            <div className={styles.dropdownMenu}>
+              <ul>
+                <li onClick={handleLogout} className={styles.dropdownItem}>Logout</li>
+              </ul>
+            </div>
+          )}
           <div className={styles.hamburgerIcon} onClick={toggleMenu}>
             {menuOpen ? <CloseIcon /> : <MenuIcon />}
           </div>
         </Grid>
       </Grid>
-    </div>
+    </div> 
   );
 }
 

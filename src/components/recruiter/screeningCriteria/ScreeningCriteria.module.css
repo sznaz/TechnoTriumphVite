@@ -164,6 +164,7 @@
 .trash {
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
 }
 .accordDetails {
     background-color: #fff6ea !important;
@@ -206,4 +207,7 @@
     position: absolute;
     right: 10px;
     top: 10px;
+}
+.trashIconImage{
+    margin-bottom: 8px;
 }
