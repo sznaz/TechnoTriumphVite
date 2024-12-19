@@ -1,7 +1,9 @@
 .headerWrapper {
     background: #fff;
-    border: 2px solid #d9d9d9;
-    border-radius: 14px;
+    border-bottom: 1px solid #d9d9d9;
+    border-left: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+    border-radius: 0 0 14px 14px;
     padding: 10px 5%;
   }
   

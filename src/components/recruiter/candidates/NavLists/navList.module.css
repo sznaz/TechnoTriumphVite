@@ -1,0 +1,40 @@
+.navListContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  
+  .navItem {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navLabel {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .navDropdown {
+    padding: 10px 24px;
+    border: 1px solid #FFBB65;
+    border-radius: 60px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .applyButton {
+    margin-top: 16px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .applyButton:hover {
+    background-color: #0056b3;
+  }
+  

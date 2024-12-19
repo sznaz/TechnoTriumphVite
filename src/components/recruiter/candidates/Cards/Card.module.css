@@ -1,0 +1,86 @@
+.card {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 16px;
+  width: 322px;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar {
+  background-color: #ffca29;
+  font-weight: bold;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.title {
+  margin-top: 12px;
+  font-size: 20px;
+  color: #333333;
+  text-align: start;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 0;
+  font-size: 14px;
+  color: #646464;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 4px;
+  margin: 16px 0;
+}
+
+.skill {
+  border: 1px solid #e6e6e6;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #646464;
+  font-size: 12px;
+}
+
+.nameContainer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.topSection {
+  display: flex;
+  flex-direction: column;
+  /* background-color: #FFF4E6; */
+  background: #fff4e6;
+  opacity: 40%;
+  border-radius: 8px;
+  padding: 12px;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.flex .img {
+  width: 20px;
+  height: 20px;
+}

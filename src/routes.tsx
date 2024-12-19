@@ -25,13 +25,14 @@ import FrequentlyAskedQuestionsPage from './pages/recruiter/frequentQuestions/Fr
 import ScreeningQuestionsPage from './pages/recruiter/screeningQuestions/ScreeningQuestions';
 import JobDetailsPage from './pages/recruiter/job/job-details/jobDetails';
 import ParseResumePage from './pages/recruiter/parseResume/ParseResume';
+import CandidatePage from './pages/recruiter/candidates/candidate';
 
 
 const AppRoutes: React.FC = () => {
     return (
       <Routes>
-        <Route path="/" element={<Navigate to="/auth/candidate/login" />} />
-        <Route path="/auth/recruiter/login" element={<LoginPage />} />
+        <Route path="/" element={<Navigate to="/auth/recruiter/login" />} />
+        <Route path="/auth/candidate/login" element={<LoginPage />} />
         <Route path='/auth/candidate/onboarding' element={<OnboardingPage/>}/>
         <Route path='/auth/candidate/onboarding/otp' element={<OTPPage/>}/>
         <Route path='/auth/candidate/setpassword' element={<PasswordForm/>}/>
@@ -48,14 +49,16 @@ const AppRoutes: React.FC = () => {
         <Route path='/recruiter/home/frequentlyAskedQuestions' element={<FrequentlyAskedQuestionsPage/>}/>
         <Route path='/recruiter/invite/addMembers' element={<AddTeamMembers/>}/>
         <Route path='/recruiter/home/profile' element={<ProfilePage/>}/>
+        <Route path="/recruiter/candidate" element={<CandidatePage />} />
         <Route path='/recruiter/job/screeningQuestions' element={<ScreeningQuestionsPage/>}/>
         <Route path='/recruiter/job/job-details' element={<JobDetailsPage/>}/>
         <Route path='/recruiter/job/parse-resume' element={<ParseResumePage/>}/>
-        
+  
        
         <Route path="/recruiter/job/new-job" element={<NewJobPage />}>
         <Route path="overview" element={<Overview />} />
         <Route path="screening" element={<ScreeningCriteria />} />
+        
         
       </Route>
       </Routes>

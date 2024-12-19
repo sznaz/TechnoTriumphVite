@@ -22,6 +22,7 @@ function HeaderRecruiterPage() {
       "/recruiter/welcome": "Home",
       "/recruiter/home": "Home",
       "/recruiter/job/all-jobs": "Jobs",
+      "/recruiter/candidate": "Candidates",
       "/recruiter/invite/addMembers": "Team",
       "/recruiter/job/screeningQuestions": "Screening Questions",
     };
@@ -55,17 +56,16 @@ function HeaderRecruiterPage() {
               <li
                 key={tab}
                 className={`${styles.menuItem} ${activeTab === tab ? styles.activeTab : ""}`}
-                style={tab === "Candidates" ? { cursor: "not-allowed" } : {}}
               >
-                {tab === "Candidates" ? (
-                  <span className={styles.disabledTab}>{tab}</span>
-                ) : (
+ 
                   <Link
                     to={
                       tab === "Home"
                         ? "/recruiter/welcome/start"
                         : tab === "Jobs"
                         ? "/recruiter/job/all-jobs"
+                        : tab === "Candidates"
+                        ? "/recruiter/candidate"
                         : tab === "Team"
                         ? "/recruiter/invite/addMembers"
                         : tab === "Screening Questions"
@@ -76,7 +76,6 @@ function HeaderRecruiterPage() {
                   >
                     {tab}
                   </Link>
-                )}
               </li>
             ))}
           </ul>
