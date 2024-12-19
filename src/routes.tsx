@@ -42,7 +42,7 @@ const AppRoutes: React.FC = () => {
         <Route path='/recruiter/welcome/start' element={<HomeRecruiterPage/>}/>
         <Route path='/candidate/welcome/start' element={<HomeCandidatePage/>}/>
         <Route path='/recruiter/job/all-jobs' element={<Jobs/>}/>
-        <Route path='/recruiter/job/new-job' element={<NewJobPage/>}/>
+      
         <Route path='/recruiter/home/frequentlyAskedQuestions' element={<FrequentlyAskedQuestionsPage/>}/>
         <Route path='/recruiter/invite/addMembers' element={<AddTeamMembers/>}/>
         <Route path='/recruiter/home/profile' element={<ProfilePage/>}/>

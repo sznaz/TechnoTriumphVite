@@ -155,3 +155,21 @@
 ::ng-deep .tox .tox-mbtn__select-label{
     color: red !important;
  }
+
+ .customIconButton {
+    font-size: 20px; 
+    padding: 4px; 
+  }
+  
+  .customIconButton svg {
+    font-size: 20px; 
+  }
+
+  .customRichTextEditorContainer {
+    border: none !important;
+    box-shadow: none !important; 
+  }
+  
+  .customRichTextEditorContainer .ProseMirror {
+    border: none !important;
+  }

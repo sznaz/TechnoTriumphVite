@@ -1,52 +1,51 @@
 
 
-import React,  { Suspense } from "react";
-import {
-
-  
-    Chip,
-   
-    Grid,
-
-    InputLabel,
-   
-
-
-} from "@mui/material";
+import React,  {  useRef } from "react";
+import { Chip,Grid,IconButton,InputLabel,} from "@mui/material";
 import { Link} from 'react-router-dom'
-
-import "react-quill/dist/quill.snow.css";
-
+// import "react-quill/dist/quill.snow.css";
 import styles from "./Overview.module.css";
 
 
+import TextAlign from '@tiptap/extension-text-align';
+import  { StarterKit  } from "@tiptap/starter-kit";
+import {
+  MenuButtonBold,
+  MenuButtonItalic,
+ 
+  MenuControlsContainer,
+  MenuDivider,
+  MenuSelectHeading,
+  RichTextEditor,
+  type RichTextEditorRef,
+} from "mui-tiptap";
+import { FormatAlignLeft, FormatAlignCenter, FormatAlignRight,FormatIndentIncrease, FormatIndentDecrease    } from '@mui/icons-material';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+// const ReactQuill = React.lazy(() => import("react-quill"));
 
 
 
-const ReactQuill = React.lazy(() => import("react-quill"));
+// const modules = {
+//     toolbar: [
+//         [{ header: [1, 2, 3, false] }],
+//         ["bold", "italic"],
+//         [{ align: "" }, { align: "center" }, { align: "right" }],
+//         [{ indent: '-1' },
+//         { indent: '+1' }],
 
+//     ],
+// };
 
+// const formats = [
+//     "header",
+//     "bold",
+//     "italic",
 
-const modules = {
-    toolbar: [
-        [{ header: [1, 2, 3, false] }],
-        ["bold", "italic"],
-        [{ align: "" }, { align: "center" }, { align: "right" }],
-        [{ indent: '-1' },
-        { indent: '+1' }],
+//     "align",
+//     'indent'
 
-    ],
-};
-
-const formats = [
-    "header",
-    "bold",
-    "italic",
-
-    "align",
-    'indent'
-
-];
+// ];
 
 const OverviewPage = () => {
 
@@ -61,10 +60,7 @@ const OverviewPage = () => {
         locations: [] as string[],
         closingDate: '',
     });
-    const handleDescriptionChange = (value: React.SetStateAction<string>) => {
-        setJobDescription(value);
-    };
-
+   
 
     const handleRemoveLocation = (location: string) => {
         setFormData((prevData) => ({
@@ -92,9 +88,41 @@ const OverviewPage = () => {
       };
 
 
+      const handleTextAlign = (align: string) => {
+        if (rteRef.current && rteRef.current.editor) {
+          const { editor } = rteRef.current;
+          editor.chain().focus().setTextAlign(align).run();
+        }
+      };
+      const handleIncreaseIndent = () => {
+        if (rteRef.current && rteRef.current.editor) {
+          const { editor } = rteRef.current;
+          editor.chain().focus().toggleBlockquote().run(); 
+        }
+      };
+
+      const handleDecreaseIndent = () => {
+        if (rteRef.current && rteRef.current.editor) {
+          const { editor } = rteRef.current;
+          editor.chain().focus().toggleBlockquote().run(); 
+        }
+      };
+
+      const handleUndo = () => {
+        if (rteRef.current && rteRef.current.editor) {
+          const editor = rteRef.current.editor;
+          editor.chain().focus().undo().run();
+        }
+      };
+    
+      const handleRedo = () => {
+        if (rteRef.current && rteRef.current.editor) {
+            const editor = rteRef.current.editor;
+            editor.chain().focus().redo().run();
+        }
+      };
    
-   
-  
+      const rteRef = useRef<RichTextEditorRef>(null);
 
 
     return (
@@ -122,8 +150,52 @@ const OverviewPage = () => {
                                         <li className={styles.ulLiStyle1}>Format</li>
                                         <li className={styles.ulLiStyle1}>Tools</li>
                                     </ul>
-                                    <Suspense fallback={<div>Loading editor...</div>}>
-                                    <ReactQuill
+                                   
+                                    <RichTextEditor
+                                    
+        ref={rteRef}
+        extensions={[StarterKit,
+            TextAlign.configure({ types: ['heading', 'paragraph'] }), 
+        ]} 
+        className={styles.customRichTextEditorContainer} 
+        content={jobDescription}
+        onUpdate={({ editor }) => {
+            
+            setJobDescription(editor.getHTML());
+          }}
+        renderControls={() => (
+          <MenuControlsContainer>
+              <IconButton onClick={handleUndo} size="small" className={styles.customIconButton}>
+                  <ArrowBackIcon />
+                </IconButton>
+                <IconButton onClick={handleRedo} size="small" className={styles.customIconButton}>
+                  <ArrowForwardIcon />
+                </IconButton>
+            <MenuSelectHeading />
+            <MenuDivider />
+            <MenuButtonBold />
+            <MenuButtonItalic />
+            <MenuDivider />
+            <IconButton onClick={() => handleTextAlign('left')} className={styles.customIconButton}>
+                      <FormatAlignLeft />
+                    </IconButton>
+                    <IconButton onClick={() => handleTextAlign('center')} className={styles.customIconButton}>
+                      <FormatAlignCenter />
+                    </IconButton>
+                    <IconButton onClick={() => handleTextAlign('right')} className={styles.customIconButton}>
+                      <FormatAlignRight />
+                    </IconButton>
+                    <MenuDivider />
+                    <IconButton onClick={handleIncreaseIndent} className={styles.customIconButton}>
+                      <FormatIndentIncrease />
+                    </IconButton>
+                    <IconButton onClick={handleDecreaseIndent} className={styles.customIconButton}>
+                      <FormatIndentDecrease />
+                    </IconButton>
+          </MenuControlsContainer>
+        )}
+      />
+                   {/* <ReactQuill
                                         theme="snow"
                                         value={jobDescription}
                                         onChange={handleDescriptionChange}
@@ -131,8 +203,8 @@ const OverviewPage = () => {
                                         formats={formats}
 
                                         style={{ height: "150px", marginBottom: "20px", border: " #FFE2C8", }}
-                                    />
-                                            </Suspense>
+                                    /> */}
+                                           
                                 </div>
                             </Grid>
 
