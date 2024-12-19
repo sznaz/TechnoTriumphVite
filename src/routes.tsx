@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 
 
@@ -16,8 +16,8 @@ import PasswordRecruiterForm from './pages/auth/recruiter/Password/SetPassword';
 const AppRoutes: React.FC = () => {
     return (
       <Routes>
-      
-        <Route path="/auth/candidate/login" element={<LoginPage />} />
+        <Route path="/" element={<Navigate to="/auth/candidate/login" />} />
+        <Route path="/auth/recruiter/login" element={<LoginPage />} />
         <Route path='/auth/candidate/onboarding' element={<OnboardingPage/>}/>
         <Route path='/auth/candidate/onboarding/otp' element={<OTPPage/>}/>
         <Route path='/auth/candidate/setpassword' element={<PasswordForm/>}/>
