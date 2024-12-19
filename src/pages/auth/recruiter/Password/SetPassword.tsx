@@ -49,6 +49,7 @@ const PasswordRecruiterForm = () => {
         <button type="submit" className={styles.nextBtn} disabled={!isFormValid}>
           Submit
         </button>
+        <div className={styles.grayLine}></div>
         <p>Already have an account? <Link to="/auth/recruiter/login" className={styles.link}>Login</Link></p>
       </form>
   </AuthCommonLayout>

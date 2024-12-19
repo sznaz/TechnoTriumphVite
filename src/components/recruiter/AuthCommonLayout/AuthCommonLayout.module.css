@@ -49,6 +49,12 @@
     .brand {
       color: #f89a29;
     }
+    .grayLine {
+      margin-bottom:10px;
+      border-bottom: 1px solid #E6E6E6;
+      width: 100%;
+      margin-bottom: 30px;
+    }
     
     .buttons {
       display: flex;

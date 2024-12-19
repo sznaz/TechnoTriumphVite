@@ -41,6 +41,7 @@ const OnboardingRecruiterPage = () => {
           <label htmlFor="terms"><span className={styles.textColor}>I agree to all</span> <Link to='' style={{textDecoration:'none',color:'black'}}>terms & conditions</Link></label>
         </div>
         <button type="submit" className={styles.nextBtn} disabled={!isFormValid}>Next</button>
+        <div className={styles.grayLine}></div>
         <p className={styles.textColor}>Already have an account? <Link to="/auth/recruiter/login" className={styles.link}>Login</Link></p>
       </form>
   </AuthCommonLayout>

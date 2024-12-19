@@ -1,0 +1,8 @@
+.footermenu {
+    font-size: 11px;
+    color: #646464;
+    text-align: center;
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.07);
+}

@@ -1,0 +1,99 @@
+.container {
+    height: calc(100vh - 92px);
+    overflow-y: auto;
+    padding: 2% 5%;
+    background: linear-gradient(to bottom, rgba(255, 246, 234, 0.4) 0%, rgba(255, 246, 234, 1) 100%);
+  }
+  .mainHeading {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    
+  }
+  .innerContainer {
+    border-radius: 16px;
+    background-color: #ffffff;
+    display: grid;
+    width: 100%;
+    box-sizing: border-box;
+    flex: 0 0 70%;
+    padding: 20px 30px 30px 50px;
+    
+  }
+
+  .flexClass{
+    display: flex;            
+  justify-content: space-between; 
+  width: 100%;  
+  align-items: flex-start;  
+  }
+
+  .rightContainer{
+    flex: 0 0 30%;            
+    margin-left: 10px;
+    border-radius: 16px;
+    padding: 100px 30px;
+    background-color: #ffffff;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;                    
+    justify-content: flex-start; 
+  }
+
+  .heading{
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .qnText{
+    font-size: 14px;
+    color: #333333;
+    margin-top: 20px;
+    align-items: center;
+  }
+  .contactButton{
+   
+        font-size: 14px !important;
+        color: #020202 !important;
+        border-radius: 60.67px !important;
+        text-transform: capitalize !important;
+        border: 1px solid #FFBB65 !important;
+        min-width: 120px !important;
+        height: 42px !important;
+        font-weight: 500 !important;
+    margin-top: 20px !important;
+  }
+
+  .changePos {
+    transform: rotate(180deg) !important;
+     color: #333333;
+  }
+  .accord {
+    box-shadow: none !important;
+    /* border-top: 1px solid grey; */
+   border-bottom: 1px solid #333333 !important;
+  }
+  
+  .accord:nth-child(5) {
+    border-bottom: none !important;
+  }
+  .accord::before {
+    border: none !important;
+    display: none !important;
+  }
+  .addColor {
+    color: #919191 !important;
+    
+  }
+  .accord:nth-child(1) {
+    border-top: none !important;
+  }
+
+
+  .questionImg {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+  }

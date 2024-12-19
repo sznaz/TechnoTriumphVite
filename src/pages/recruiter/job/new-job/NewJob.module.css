@@ -1,0 +1,79 @@
+.breadcrumb {
+    font-size: 12px;
+    color: #666666;
+}
+.container {
+    height: calc(100vh - 96px);
+    overflow-y: auto;
+    padding: 2% 5%;
+    background: linear-gradient(to bottom, rgba(255, 246, 234, 0.4) 0%, rgba(255, 246, 234, 1) 100%);
+  }
+
+.txtTitle {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.overview {
+    font-size: 14px !important;
+    border-radius: 20px !important;
+    
+    color: #666666 !important; 
+    text-transform: capitalize !important;
+    border: 1px solid #FEDBB0 !important;
+    box-shadow: none;   
+    background-color: #ffffff !important; 
+}
+
+.screen {
+    font-size: 14px !important;
+    color: #666666 !important;
+    border-radius: 20px !important;
+    text-transform: capitalize !important;
+    border: 1px solid #FEDBB0 !important;
+    margin-left: 50px !important;
+    position: relative !important;
+   
+    background-color: #ffffff !important; 
+}
+
+.ulStyle {
+    display: flex;
+    justify-content: right;
+    list-style-type: none;
+}
+
+.liStyle {
+    width: 195px;
+    height: 79px;
+    background-size: cover;
+    border-radius: 10px;
+    margin: 0 1%;
+    padding: 15px;
+}
+
+.title {
+    font-size: 18px;
+    color: #666666;
+    font-weight: 600;
+}
+
+.jobId {
+    font-size: 14px;
+    color: #9D9D9D;
+}
+.screen::after {
+    content: '' !important;
+    border: 1px dashed #FEDBB0 !important;
+    width: 50px !important;
+    position: absolute !important;
+    left: -50px !important;
+}
+.activeButton {
+    background-color: #000 !important;
+    color: #fff !important;
+    border: none !important;
+    
+  }

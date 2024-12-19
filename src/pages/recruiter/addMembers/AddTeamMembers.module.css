@@ -1,0 +1,239 @@
+.container {
+    height: calc(100vh - 92px);
+    overflow-y: auto;
+    padding: 2% 2%;
+    background: linear-gradient(to bottom, rgba(255, 246, 234, 0.4) 0%, rgba(255, 246, 234, 1) 100%);
+  }
+  
+  .innercontainer {
+    border-radius: 16px;
+    background-color: #FFFFFF;
+    padding: 32px 72px 100px 72px;
+  }
+  
+  .mainHeading {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 80px;
+  }
+  
+  .membersList {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .memberRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .memberCard {
+    flex: 1;
+    background-color: #f0f4ff;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  
+  .info {
+    flex: 1;
+    padding: 15px 0 15px 15px;
+    width: 100%;
+  }
+  
+  .label {
+    display: block;
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 5px;
+  }
+  
+  .status {
+    padding: 5px 10px;
+    border-radius: 100px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+  }
+  
+  .pending {
+    background-color: #FFE8A1;
+    color: #9A7400;
+    font-size: 11px;
+  }
+  
+  .accepted {
+    background-color: #B6F7A6;
+    color: #1C7705;
+    font-size: 11px;
+  }
+  
+  .accepted .iconCircle {
+    background-color: #1C7705;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+  }
+  
+  .icon {
+    color: #fff;
+    font-size: 5px;
+  }
+  
+  .inputField {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #FFE2C8;
+  }
+  
+  .sendInviteButton {
+    margin-top: 25px;
+    padding: 8px 16px;
+    color: #FB8C00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: inherit !important;
+  }
+  
+  .addButton {
+    font-size: 14px !important;
+    color: #020202 !important;
+    border-radius: 20px !important;
+    text-transform: capitalize !important;
+    border: 1px solid #FB8C00 !important;
+    min-width: 120px !important;
+    height: 42px !important;
+    font-weight: 500 !important;
+    margin-top: 1rem;
+    margin-left: 10px;
+    background-color: #ffffff !important;
+    cursor: pointer;
+  }
+  
+  .formsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .removeForm {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #FB8C00;
+    margin-top: 25px;
+  }
+  
+  .questionImg {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+  }
+  .last{
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+  }
+  @media (max-width: 1024px) {
+    .innercontainer {
+      padding: 32px 20px 100px 20px; 
+    }
+  
+    .mainHeading {
+      font-size: 28px; 
+      margin-left: 0;
+      text-align: center;
+    }
+  
+    .memberRow {
+      flex-direction: column;
+      align-items: flex-start; 
+    }
+  
+    .memberCard {
+      width: 100%; 
+      margin-bottom: 10px; 
+    }
+  
+    .formsContainer {
+      width: 100%;
+    }
+  
+    .addButton {
+      width: 100%; 
+      margin-top: 20px;
+      background-color: #ffffff !important;
+    }
+    
+    .removeForm {
+      margin-top: 20px; 
+    }
+    .inputField {
+      width: 100%; 
+    }
+    .last{
+      display: flex;
+      justify-content: center !important;
+      align-items: center;
+      margin: auto;
+      
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .innercontainer {
+      padding: 16px; 
+    }
+  
+    .mainHeading {
+      font-size: 24px; 
+    }
+  
+    .memberRow {
+      flex-direction: column; 
+      align-items: center; 
+    }
+  
+    .memberCard {
+      width: 100%; 
+      margin-bottom: 15px; 
+    }
+  
+    .inputField {
+      width: 100%; 
+    }
+  
+    .sendInviteButton {
+      width: 100%; 
+      background: inherit !important;
+    }
+  
+    .removeForm {
+      font-size: 1.2rem; 
+    }
+  
+    .questionImg {
+      justify-content: center; 
+      margin-top: 10px;
+    }
+ 
+  }
+  
+  

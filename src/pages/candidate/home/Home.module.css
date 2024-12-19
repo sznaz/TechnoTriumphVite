@@ -1,0 +1,99 @@
+.bg1 {
+    /* background-color: yellow; */
+    cursor: pointer;
+    width: 412px;
+    height: 270px;
+    border-radius: 22px;
+    padding: 15px;
+    margin: 10px;
+    background-size: 100% 100%;
+}
+
+
+.innerImage {
+    padding-top: 10px;
+}
+
+.title {
+    font-size: 28px;
+    color: #333333;
+    padding-top: 125px;
+    font-weight: 600;
+}
+
+.ulstyle {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+  .linkStyle{
+    text-decoration: none;
+  }
+.txtTitle {
+    color: #666666;
+    font-size: 24px;
+    text-align: center;
+}
+
+.txtTitle1 {
+    font-size: 16px;
+    color: #646464;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.welcome {
+    font-size: 40px;
+    color: #141414;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.proTitle {
+    color: #265DF5;
+}
+
+.subTitle {
+    font-size: 16px;
+    color: #333333;
+    text-align: center;
+    margin-top: 5px;
+    width: 54%;
+    margin: auto;
+}
+
+.containerWrapper {
+    height: calc(100vh - 92px);
+    overflow-y: auto;
+}
+
+.mainWrapper {
+    padding: 30px;
+    border-radius: 25px;
+  
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    /* margin-top: 50px; */
+    height: 73%;
+}
+
+.containerW {
+    margin-top: 10px;
+}
+
+.bodyWrapper {
+    background-color: #F9FAFF;
+    /* background: radial-gradient(#fb8c0038, #ffffff) */
+}
+
+.ulstyle li:hover {
+    border: 2px solid #265DF5;
+}
+
+.que {
+    position: absolute;
+    right: 2%;
+    bottom: 5%;
+
+}

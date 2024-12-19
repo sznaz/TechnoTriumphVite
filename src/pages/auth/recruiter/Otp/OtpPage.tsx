@@ -72,6 +72,7 @@ const OTPRecruiterPage = () => {
           </div>
         </div>
         <button type="submit" className={styles.nextBtn}>Next</button>
+        <div className={styles.grayLine}></div>
         <p>Already have an account? <Link to="/auth/recruiter/login" className={styles.link}>Login</Link></p>
       </form>
     </AuthCommonLayout>

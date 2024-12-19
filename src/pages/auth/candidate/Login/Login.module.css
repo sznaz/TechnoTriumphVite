@@ -34,22 +34,22 @@
     width: 16px;
     height: 16px;
     background-color: white;
-    border: 1px solid blue; 
+    border: 1px solid #2254DD; 
     border-radius: 4px;
     cursor: pointer;
     position: relative;
   }
   
   .customCheckbox:checked {
-    background-color: blue; 
-    border-color: blue;
+    background-color: #2254DD; 
+    border-color: #2254DD;
   }
   
   .customCheckbox:checked::after {
     content: '';
     position: absolute;
-    top: 2px;
-    left: 5px;
+   
+    left: 4px;
     width: 5px;
     height: 10px;
     border: solid white;
@@ -67,7 +67,7 @@
 
   }
   .nextBtn {
-    background-color: blue;
+    background-color: #2254DD;
     padding: 10px;
     border: none;
     border-radius: 60.67px;
@@ -82,7 +82,7 @@
   }
   
   .link {
-    color: blue;
+    color: #2254DD;
     text-decoration: none;
   }
   
@@ -124,6 +124,6 @@
   }
   .nextBtn{
     margin-top: 40px;
-    background-color: blue;
+    background-color: #2254DD;
   }
   
