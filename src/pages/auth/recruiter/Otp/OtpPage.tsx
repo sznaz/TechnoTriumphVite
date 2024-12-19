@@ -3,19 +3,41 @@ import styles from '../onboarding/Onboarding.module.css'
 import { useNavigate } from 'react-router-dom';
 import AuthCommonLayout from '../../../../components/recruiter/AuthCommonLayout/AuthCommonLayout';
 import { Link } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
+import { AuthService } from '../service/auth.service';
+import { setFullname, setRegisterToken } from '../../../../redux/auth/authSlice';
 
 const OTPRecruiterPage = () => {
+  const dispatch = useAppDispatch();
+  const userEmail = useAppSelector(state => state.auth.userEmail);
+  const otpToken = useAppSelector(state => state.auth.otpToken);
   const [otp, setOtp] = useState('');
   const navigate = useNavigate();
+  const [error, setError] = useState('');
 
 
  
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log('OTP Submitted: ', otp);
-    navigate('/auth/recruiter/setpassword'); 
+    try {
+      const response = await AuthService.instance.verifyOtp(userEmail, otp, otpToken);
+      const fullname = response.data.data.fullname;
+       const registerToken = response.data.data.registerToken;
+      dispatch(setFullname(fullname));
+      dispatch(setRegisterToken(registerToken));
+      if(response.status === 200){
+        navigate('/auth/recruiter/setpassword');
+      }else{
+        setError('Invalid credentials or server error.');
+        console.log(error)
+      }
+    } catch (error) {
+      console.log(error)
+      setError('An unexpected error occurred. Please try again later.'); 
+    }
+    console.log('OTP Submitted: ', otp); 
   };
 
   return (

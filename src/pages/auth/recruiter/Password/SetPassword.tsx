@@ -3,22 +3,54 @@ import { useNavigate } from 'react-router-dom';
 import styles from '../onboarding/Onboarding.module.css';
 import AuthCommonLayout from '../../../../components/recruiter/AuthCommonLayout/AuthCommonLayout';
 import { Link } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
+import { AuthService } from '../service/auth.service';
+import { setAccessToken } from '../../../../redux/auth/authSlice';
 
 const PasswordRecruiterForm = () => {
-    const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const fullname = useAppSelector(state => state.auth.fullname);
+  const userEmail = useAppSelector(state => state.auth.userEmail);
+  const registerToken = useAppSelector(state => state.auth.registerToken);
   const [password, setPassword] = useState('');
   const [retypePassword, setRetypePassword] = useState('');
- 
+  const [error, setError] = useState('');
 
- 
   const isFormValid = password.trim() && password === retypePassword ;
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    
-    if (isFormValid) {
-        navigate('/recruiter/welcome'); 
+    if(!isFormValid){
+      setError('')
     }
+    
+    try {
+      const roles = [
+        "recruiter"
+      ]
+      const response = await AuthService.instance.register(fullname, userEmail, password, roles, registerToken);
+
+      if(response.status === 200){
+        const refreshToken = response.data.data.refreshToken;
+        const acessToken = response.data.data.accessToken;
+        dispatch(setAccessToken(acessToken));
+        localStorage.setItem('refreshToken', refreshToken);
+        navigate('/recruiter/welcome'); 
+      }else{
+        setError('Failed to register. Please try again.');
+        console.log(error)
+      } 
+    } catch (error) {
+      console.log(error);
+      setError('An unexpected error occurred. Please try again later') 
+    }
+
+
+    
+    
+        navigate('/recruiter/welcome'); 
+    
   };
 
   return (
