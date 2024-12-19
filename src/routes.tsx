@@ -25,6 +25,7 @@ import JobDetailsPage from './pages/recruiter/job/job-details/jobDetails';
 import ParseResumePage from './pages/recruiter/parseResume/ParseResume';
 
 
+
 const AppRoutes: React.FC = () => {
     return (
       <Routes>

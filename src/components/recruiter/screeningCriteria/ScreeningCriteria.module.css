@@ -1,13 +1,18 @@
 .containerWrapper {
-
-    overflow-y: auto;
-    padding: 2% 5%;
-    border: 1px ;
-    margin-top: 10px;
+    /* height: calc(100vh - 92px);
+    padding: 2% 5%; */
     border-radius: 16px;
-    background-color: #FFFFFF;
-}
+    border: 1px solid #E6E6E6;
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    overflow-y: auto;
 
+}
+/* .mainContainer{
+    border-radius: 16px;
+    border: 1px solid #E6E6E6;
+   } */
 .screen1 {
     font-size: 14px !important;
     color: #020202 !important;
@@ -22,6 +27,29 @@
     justify-content: center  !important;
     text-decoration: none  !important;
 }
+.customInput {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #FFE2C8;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+.buttonSet{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.sectionHeading {
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 8px; 
+    color: #333;
+  }
 
 .screen2 {
     font-size: 14px !important;
@@ -39,7 +67,7 @@
     color: #222222;
     font-size: 20px;
     font-weight: 600;
-   
+    margin-top: 50px;
 }
 
 .subheadings {
@@ -93,6 +121,9 @@
     margin-bottom: 20px;
     gap: 10px;
     flex-wrap: wrap; */
+    display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
   }
   
   .filterSection select {

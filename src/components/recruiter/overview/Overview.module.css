@@ -1,12 +1,4 @@
-.containerWrapper {
 
-    overflow-y: auto;
-    padding: 2% ;
-    border: 1px ;
-    margin-top: 10px;
-    border-radius: 16px;
-    background-color: #FFFFFF;
-}
 
 
 .ulStyle1 {
@@ -14,24 +6,19 @@
     color: #fb8c00;
     display: flex;
     padding: 10px;
-    border-bottom: 1px solid #fedbb0;
-    list-style-type: none;
+    border-bottom: 1px solid #E6E6E6;
+    list-style: none;
 }
 
 .textEditorui {
-    border: 1px solid #fedbb0;
+    border: 1px solid #E6E6E6 !important;
     border-radius: 10px;
 }
 
 ::ng-deep .ql-container {
     border: none !important;
 }
-::ng-deep .ql-toolbar.ql-snow{
-    border: none !important;
-}
-::ng-deep .ql-container.ql-snow{
-    border: none !important;
-}
+
 ::ng-deep .ql-snow
  {
     border: none !important;
@@ -54,23 +41,13 @@
     min-width: 120px !important;
     height: 42px !important;
     font-weight: 600 !important;
+    display: flex  !important;
+    align-items: center  !important;
+    justify-content: center  !important;
+    text-decoration: none  !important;
 }
 
-.screen2 {
-    font-size: 14px !important;
-    color: #020202 !important;
-    border-radius: 20px !important;
-    text-transform: capitalize !important;
-    border: 1px solid #FB8C00 !important;
-    min-width: 120px !important;
-    height: 42px !important;
-   display: flex !important;
-   justify-content: center !important;
-   font-weight: 600 !important;
-    align-items: center !important;
-    text-decoration: none !important;
-    cursor: pointer !important;
-}
+
 .container {
    
     margin: auto;
@@ -84,7 +61,7 @@
     color: #222222;
     font-size: 20px;
     font-weight: 600;
-   
+    margin-top: 50px;
 }
 
 .subheadings {
@@ -97,11 +74,45 @@
     width: 100%;
     height: 40px;
     padding: 10px;
-    border: 1px solid #FFE2C8;
+    border: 1px solid #E6E6E6 !important;
     border-radius: 8px;
     outline: none;
     font-size: 16px;
     box-sizing: border-box;
+  }
+
+  .screen2 {
+    font-size: 14px !important;
+    color: #fff !important;
+    border-radius: 20px !important;
+    text-transform: capitalize !important;
+    border: 1px solid #FB8C00 !important;
+    min-width: 120px !important;
+    height: 42px !important;
+    background-color: #FB8C00 !important;
+    font-weight: 600 !important;
+}
+
+  .browseFile{
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #E6E6E6;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: end;
+    color: #FB8C00;
+    background: transparent;
+  }
+
+  .orText{
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 10px;
+    text-align: center;
   }
 
   .datepicker {
@@ -143,7 +154,7 @@
     width: 100%;
     height: 40px;
     padding: 4px;
-    border: 1px solid #FFE2C8;
+    border: 1px solid #E6E6E6;
     border-radius: 8px;
     outline: none;
     font-size: 16px;
@@ -152,6 +163,28 @@
     flex-wrap: wrap;
     gap: 5px;
   }
-::ng-deep .tox .tox-mbtn__select-label{
-    color: red !important;
+
+ .checkStyle input {
+     padding: 8.5px 14px !important;
+ }
+
+ .inputQuestion {
+    width: 100%;
+     margin: 10px 0;
+     padding: 10px;
+     font-size: 16px;
+     color: #000;
+     border: 1px solid #E6E6E6 !important;
+     border-radius: 8px;
+     background-color: #fff;
+     appearance: auto;
+     -webkit-appearance: auto; 
+     -moz-appearance: auto;
+ }
+ .inputQuestion option {
+     color: #7A7A7A; 
+ }
+ .mainContainer{
+  border-radius: 16px;
+  border: 1px solid #E6E6E6;
  }

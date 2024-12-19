@@ -1,32 +1,59 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './AllJobs.module.css'; 
-import FooterPage from '../../../../components/recruiter/footer/Footer';
-import HeaderPage from '../../../../components/recruiter/header/Header';
-import {Link} from 'react-router-dom';
+import { JobService } from '../service/JobService';
+import { Link } from 'react-router-dom';
+import HeaderRecruiterPage from '../../../../components/recruiter/header/Header';
+import FooterRecruiterPage from '../../../../components/recruiter/footer/Footer';
 
-const jobsData = [
-  { skill: 'Sr Java Developer', status: 'Open', resumesReceived: 10, screeningSent: 0 },
-  { skill: 'Oracle DBA', status: 'Open', resumesReceived: 10, screeningSent: 0 },
-  { skill: 'Program Manager', status: 'Open', resumesReceived: 10, screeningSent: 0 },
-  { skill: 'Delivery Head', status: 'Open', resumesReceived: 10, screeningSent: 0 },
-  { skill: 'Business Analyst', status: 'Open', resumesReceived: 10, screeningSent: 0 },
-  { skill: 'Data Scientist', status: 'Open', resumesReceived: 10, screeningSent: 0 },
-  { skill: 'AI/ML Architect', status: 'Open', resumesReceived: 10, screeningSent: 0 },
-];
+
+
+
+
+interface Job {
+  title: string;
+  status: string;
+  resumesReceived: number;
+  screeningSent: number;
+}
 
 export default function Jobs() {
-  const [jobList] = useState(jobsData); 
+  // const router = useRouter();
+  const [jobList, setJobList] = useState<Job[]>([]);
+  const [tenantId, setTenantId] = useState<string | null>(null);
+  
+  const status = 'open'
+
+  useEffect(() => {
+    const storedTenantId = localStorage.getItem('tenant');
+    setTenantId(storedTenantId);
+  }, []);
+  useEffect(() => {
+    if (tenantId) {
+      async function fetchJobs() {
+        try {
+          const response = await JobService.instance.getTenantJob(tenantId ?? '', status);
+          if (response?.data?.data) {
+            setJobList(response.data.data);
+          } else {
+            console.error("No data found in response", response);
+          }
+        } catch (error) {
+          console.error("Error fetching jobs:", error);
+        }
+      }
+  
+      fetchJobs();
+    }
+  }, [tenantId, status]);
 
 
   return (
    <>
        <div>
-        <HeaderPage/>
+        <HeaderRecruiterPage/>
             <div className={styles.container}>
             <div className={styles.breadcrumb}>Home / Jobs / New Job </div>
               <div className={styles.txtTitle}>All Jobs</div>
-        
-           
               <div className={styles.filterSection}>
                 <select>
                   <option value="">Skills</option>
@@ -44,8 +71,6 @@ export default function Jobs() {
                 </select>
                 <Link to="/recruiter/job/new-job/overview" className={styles.postJobButton}>Post New Job</Link>
               </div>
-        
-           
               <div className={styles.tableContainer}>
                 <table>
                   <thead>
@@ -60,10 +85,10 @@ export default function Jobs() {
                   <tbody>
                     {jobList.map((job, index) => (
                       <tr key={index}>
-                        <td>{job.skill}</td>
+                        <td>{job.title}</td>
                         <td>{job.status}</td>
-                        <td>{job.resumesReceived}</td>
-                        <td>{job.screeningSent}</td>
+                        <td>{}</td>
+                        <td>{}</td>
                         <td>
                           <Link to='/recruiter/job/job-details' >View Detail</Link>
                         </td>
@@ -73,7 +98,7 @@ export default function Jobs() {
                 </table>
               </div>
             </div>
-            <FooterPage/>
+            <FooterRecruiterPage/>
        </div>
    </>
   );

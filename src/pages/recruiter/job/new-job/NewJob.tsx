@@ -31,9 +31,10 @@ function NewJobPage() {
 
   <>
 
-       <div>
+       <div >
        <HeaderPage/>
-            <div className={styles.container}>
+       <div className={styles.containerWrapper}>
+       <div className={styles.container}>
                 <Grid container spacing={2}>
                 <Grid item xs={12} md={4}>
                     <div className={styles.breadcrumb}>Home / Jobs / New Job </div>
@@ -71,6 +72,7 @@ function NewJobPage() {
             </Grid>
             <Outlet />
             </div>
+       </div>
         <FooterPage/>
        </div>
   </>
